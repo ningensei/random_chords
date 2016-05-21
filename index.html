@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Chords</title>
+	<meta charset="utf-8">
+</head>
+<style>
+	body {
+		font-family: courier;
+	}
+	.container {
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center
+	}
+	.container .title {
+		background-color: #E6F8E0;
+		padding: 10px 20px;
+	}
+	#chord_container {
+		background-color: #FAFAFA;
+		min-height: 400px;
+		position: relative;
+	}
+	#chord {
+		width: 500px;
+		min-height: 250px;
+		position: absolute;
+		outline: 1px solid gray;
+		top: 50%;
+		left: 50%;
+		font-size: 60px;
+		margin-left: -250px;
+		margin-top: -125px;
+		display: table;
+	}
+	#chord p {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	#controls {
+		background-color: #F6E3CE;
+    	padding: 10px;
+	}
+</style>
+<body>
+<div class="container">
+	<div class="title">
+		<h1>Random Chords</h1>
+		<p>Just some chords displayed randomly using a dinamic time interval</p>
+	</div>
+	<div id="chord_container">
+		<div id="chord"><p>Press start to begin</p></div>
+	</div>
+	<div id="controls">
+		<label>Interval (in seconds)<input type="text" id="seconds"></label>
+		<button type="button" id="start_btn">Start</button>
+		<button type="button" id="stop_btn">Stop</button>
+	</div>
+</div>
+</body>
+<script>
+var app = {};
+
+app.start_btn = $('#start_btn');
+app.stop_btn = $('#stop_btn');
+app.secs_input = $('#seconds');
+app.chord_container = $('#chord_container');
+app.chord = $('#chord');
+app.chord_p = $('#chord p');
+app.seconds = 2000;
+app.interval = null;
+
+app.start_btn.addEventListener('click', function(){
+
+	if(app.secs_input.value != '') {
+		app.seconds = app.secs_input.value * 1000;
+	}
+
+	app.interval = setInterval(function(){ 
+		var random = Math.floor((Math.random() * app.chords.length - 1));
+
+		app.chord_p.innerHTML = app.chords[random][0];
+		app.chord.style.backgroundColor = app.chords[random][1];
+
+	}, app.seconds);
+});
+
+app.stop_btn.addEventListener('click', function(){
+	clearInterval(app.interval);
+	app.chord.style.backgroundColor = 'initial';
+	app.chord_p.innerHTML = 'Press start to begin';
+
+});
+
+app.chords = [
+	['C maj7', '#F5BCA9'],
+	['C7', '#F5BCA9'],
+	['Cm 7', '#F5BCA9'],
+	['Cm maj7', '#F5BCA9'],
+
+	['C# maj7', '#F5BCA9'],
+	['C#7', '#F5BCA9'],
+	['C#m 7', '#F5BCA9'],
+	['C#m maj7', '#F5BCA9'],
+
+	['Db maj7', '#CEE3F6'],
+	['Db7', '#CEE3F6'],
+	['Dbm 7', '#CEE3F6'],
+	['Dbm maj7', '#CEE3F6'],
+
+	['D maj7', '#CEE3F6'],
+	['D7', '#CEE3F6'],
+	['Dm 7', '#CEE3F6'],
+	['Dm maj7', '#CEE3F6'],
+
+	['D# maj7', '#CEE3F6'],
+	['D#7', '#CEE3F6'],
+	['D#m 7', '#CEE3F6'],
+	['D#m maj7', '#CEE3F6'],
+
+	['Eb maj7', '#E2A9F3'],
+	['Eb7', '#E2A9F3'],
+	['Ebm 7', '#E2A9F3'],
+	['Ebm maj7', '#E2A9F3'],
+
+	['E maj7', '#E2A9F3'],
+	['E7', '#E2A9F3'],
+	['Em 7', '#E2A9F3'],
+	['Em maj7', '#E2A9F3'],
+
+	['E# maj7', '#E2A9F3'],
+	['E#7', '#E2A9F3'],
+	['E#m 7', '#E2A9F3'],
+	['E#m maj7', '#E2A9F3'],
+
+	['F maj7', '#A9F5F2'],
+	['F7', '#A9F5F2'],
+	['Fm 7', '#A9F5F2'],
+	['Fm maj7', '#A9F5F2'],
+
+	['F# maj7', '#A9F5F2'],
+	['F#7', '#A9F5F2'],
+	['F#m 7', '#A9F5F2'],
+	['F#m maj7', '#A9F5F2'],
+
+	['Gb maj7', '#F3F781'],
+	['Gb7', '#F3F781'],
+	['Gbm 7', '#F3F781'],
+	['Gbm maj7', '#F3F781'],
+
+	['G maj7', '#F3F781'],
+	['G7', '#F3F781'],
+	['Gm 7', '#F3F781'],
+	['Gm maj7', '#F3F781'],
+
+	['G# maj7', '#F3F781'],
+	['G#7', '#F3F781'],
+	['G#m 7', '#F3F781'],
+	['G#m maj7', '#F3F781'],
+
+	['G maj7', '#F3F781'],
+	['G7', '#F3F781'],
+	['Gm 7', '#F3F781'],
+	['Gm maj7', '#F3F781'],
+
+	['Ab maj7', '#A9F5A9'],
+	['Ab7', '#A9F5A9'],
+	['Abm 7', '#A9F5A9'],
+	['Abm maj7', '#A9F5A9'],
+
+	['A maj7', '#A9F5A9'],
+	['A7', '#A9F5A9'],
+	['Am 7', '#A9F5A9'],
+	['Am maj7', '#A9F5A9'],
+
+	['A# maj7', '#A9F5A9'],
+	['A#7', '#A9F5A9'],
+	['A#m 7', '#A9F5A9'],
+	['A#m maj7', '#A9F5A9'],
+
+	['Bb maj7', '#819FF7'],
+	['Bb7', '#819FF7'],
+	['Bbm 7', '#819FF7'],
+	['Bbm maj7', '#819FF7'],
+
+	['B maj7', '#819FF7'],
+	['B7', '#819FF7'],
+	['Bm 7', '#819FF7'],
+	['Bm maj7', '#819FF7']
+];
+
+/**
+ * Wrapper de document.querySelector().
+ * @return HTMLElement
+ */
+function $(str) {
+    return res = document.querySelector(str);
+}
+
+</script>
+</html>
