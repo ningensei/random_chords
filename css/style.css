@@ -1,72 +1,81 @@
 body {
-	font-family: courier;
+    font-family: courier;
+    background-image: url('../img/background.png');
 }
 .container {
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 20px;
+    border: 10px groove #536d0b;
 }
 .container .title {
-	background-color: #E6F8E0;
-	padding: 10px 20px;
+    background-color: #d5db38;
+    padding: 10px 20px;
+}
+.container .title h1 {
+    font-size: 59px;
+    padding: 0px;
+    margin: 10px;
 }
 #chord_container {
-	background-color: #FAFAFA;
-	min-height: 400px;
-	position: relative;
+    background-color: #DEDEBB;
+    min-height: 400px;
+    position: relative;
 }
 #chord {
-	width: 500px;
-	min-height: 250px;
-	position: absolute;
-	outline: 1px solid gray;
-	top: 50%;
-	left: 50%;
-	font-size: 60px;
-	margin-left: -250px;
-	margin-top: -125px;
-	display: table;
+    width: 500px;
+    min-height: 250px;
+    position: absolute;
+    outline: 1px solid gray;
+    top: 50%;
+    left: 50%;
+    font-size: 60px;
+    margin-left: -250px;
+    margin-top: -125px;
+    display: table;
 }
 #chord p {
-	display: table-cell;
-	vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle;
 }
 #controls {
-	background-color: #F6E3CE;
-	padding: 10px;
+    background-color: #d5db38;
+    padding: 10px;
 }
 .interval_container,
 .types_container,
 .keys_container {
-	background-color: orange;
-	padding: 10px;
+    background-color: #8fb427;
+    padding: 10px;
 }
 .interval_container,
 .types_container {
-	border-bottom: 5px solid #F6E3CE;
+    border-bottom: 5px solid #d5db38;
 }
 #start_btn {
-	border: 0;
-    background: #74DF00;
+    border: 0;
+    background: white;
     font-weight: bold;
     cursor: pointer;
 }
 #stop_btn {
-	border: 0;
-    background: #FE2E9A;
+    border: 0;
+    background: #2E2E2E;
+    color: white;
     font-weight: bold;
     cursor: pointer;
 }
 #start_btn:hover, #stop_btn:hover {
-	box-shadow: 1px 1px 1px #888888;
+    box-shadow: 1px 1px 1px #888888;
 }
 #dots {
-	position: absolute;
+    position: absolute;
     bottom: 20px;
     left: 0;
     width: 100%;
 }
 #dots img {
-	margin: 0 3px;
+    margin: 0 3px;
 }
